@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام النقاط - معرض إيفان</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f4f6f9;
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .page {
+            background: white;
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            padding: 20mm;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        @media print {
+            body { background-color: white; }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                padding: 10mm;
+                max-width: 100%;
+            }
+        }
+        h1 {
+            text-align: center;
+            color: #1a3e5c;
+            border-bottom: 2px solid #1a3e5c;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            text-align: center;
+            color: #555;
+            font-size: 1.1em;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+        h3 {
+            background-color: #1a3e5c;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 30px;
+            font-size: 1.2em;
+        }
+        .point-system {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .point-card {
+            flex: 1;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .green-pt { border-right: 5px solid #28a745; }
+        .yellow-pt { border-right: 5px solid #ffc107; }
+        .red-pt { border-right: 5px solid #dc3545; }
+        .point-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        .green-title { color: #28a745; }
+        .yellow-title { color: #e0a800; }
+        .red-title { color: #dc3545; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            margin-bottom: 25px;
+            font-size: 0.95em;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: right;
+        }
+        th {
+            background-color: #f4f6f8;
+            font-weight: bold;
+            color: #1a3e5c;
+        }
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+        .section-box {
+            background: #fff;
+            border: 1px solid #e1e8ed;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .section-box strong {
+            color: #1a3e5c;
+        }
+        .footer-note {
+            text-align: center;
+            margin-top: 40px;
+            font-weight: bold;
+            color: #e74c3c;
+            padding: 10px;
+            border: 1px dashed #e74c3c;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        [span_0](start_span)<h1>إيفان SHOWROOM[span_0](end_span)</h1>
+        [span_1](start_span)<h2>نظام حساب النقاط الرسمي في المعرض[span_1](end_span)<br>
+            [span_2](start_span)أداة مؤسسية لضمان العدالة والشفافية - مكافأة التميز الفعلي بعيداً عن المجاملات[span_2](end_span)
+        </h2>
+
+        <h3>١. [span_3](start_span)آلية عمل النقاط اليومية[span_3](end_span)</h3>
+        [span_4](start_span)<p>يتم متابعة أداء الموظفين ورصد نقاطهم بشكل يومي ومباشر.[span_4](end_span) كل نقطة تمنح أو تخصم بناء على سبب تشغيلي واضح وموثق. [span_5](start_span)لا مجاملات ولا قرارات شفهية.[span_5](end_span)</p>
+        
+        <div class="point-system">
+            <div class="point-card green-pt">
+                <div class="point-title green-title">النقطة الخضراء: ١٠٠٠ د.ع</div>
+                [span_6](start_span)تمنح عند إنجاز واضح خارج نطاق العمل الأساسي - مبادرة فعلية تضيف قيمة للمعرض، لا تمنح على الأداء الاعتيادي أبدا.[span_6](end_span)
+            </div>
+            <div class="point-card yellow-pt">
+                <div class="point-title yellow-title">النقطة الصفراء: تنبيه رسمي</div>
+                [span_7](start_span)تنبيه مكتوب موثق عند غياب أو خطأ بسيط لا خصم مالي مباشر - لكن تكرارها مرتين في نفس الشهر يحولها تلقائياً إلى نقطة حمراء.[span_7](end_span)
+            </div>
+            <div class="point-card red-pt">
+                <div class="point-title red-title">النقطة الحمراء: ١٠٠٠ د.ع</div>
+                [span_8](start_span)خصم فوري عند خطأ كبير كنسيان غرض أو تكرار خطأ سبق التنبيه عليه، لا استثناء.[span_8](end_span)
+            </div>
+        </div>
+
+        <h3>٢. [span_9](start_span)أمثلة واضحة على منح النقاط وخصمها[span_9](end_span)</h3>
+        <table>
+            <tr>
+                <th>النقطة</th>
+                <th>الموقف / السلوك</th>
+                <th>التفاصيل</th>
+            </tr>
+            <tr>
+                <td rowspan="4" style="color: #28a745; font-weight: bold;">إنجاز ومبادرات</td>
+                <td>مبادرة خارج نطاق العمل</td>
+                <td>تنفيذ مهمة أو حل مشكلة خارج نطاق واجباته الأساسية بشكل مستقل وناجح</td>
+            </tr>
+            <tr>
+                <td>إنقاذ موقف طارئ</td>
+                <td>تدخل فوري لسد نقص أو حل أزمة دون انتظار أمر، وتجاوز الموقف بنجاح</td>
+            </tr>
+            <tr>
+                <td>دعم قسم آخر فعلياً</td>
+                <td>مساعدة زميل أو قسم مختلف في وقت ضغط بشكل مؤثر يعود بفائدة واضحة على المعرض</td>
+            </tr>
+            <tr>
+                <td>إنجاز استثنائي موثق</td>
+                <td>إتمام عمل بجودة عالية واضحة في ظروف ضغط أو ذروة يفوق المتوقع بشكل ملحوظ</td>
+            </tr>
+            <tr>
+                <td rowspan="6" style="color: #dc3545; font-weight: bold;">تأخير وأخطاء</td>
+                <td>غياب بدون إشعار</td>
+                <td>التغيب عن الدوام دون إبلاغ مسبق أو سبب موثق مقبول من الإدارة</td>
+            </tr>
+            <tr>
+                <td>تأخر عن موعد الشفت</td>
+                <td>الوصول متأخرا عن وقت البداية المحدد دون عذر رسمي مسبق</td>
+            </tr>
+            <tr>
+                <td>تجاهل تعليمات مباشرة</td>
+                <td>عدم تنفيذ توجيهات واضحة صادرة من مسؤول الشفت أو الإدارة في وقتها</td>
+            </tr>
+            <tr>
+                <td>إهمال في التسليم أو التسجيل</td>
+                <td>نسيان توثيق طلب، أو عدم إبلاغ البديل عند الانصراف، أو ترك مهمة مفتوحة بدون تسليم</td>
+            </tr>
+            <tr>
+                <td>نسيان غرض أو قطعة</td>
+                <td>إتمام مهمة وإرجاع السيارة أو المغادرة دون التحقق من اكتمال الطلب أو استلام الزبون</td>
+            </tr>
+            <tr>
+                <td>خطأ متكرر بعد تنبيه</td>
+                <td>تكرار نفس الخطأ أو السلوك بعد تلقي نقطة صفراء رسمية مسجلة في نفس الشهر</td>
+            </tr>
+            <tr>
+                <td style="color: #dc3545; font-weight: bold;">خسارة</td>
+                <td>تسبب بخسارة مباشرة</td>
+                <td>أي خطأ أو إهمال أدى لخسارة مالية أو تشغيلية واضحة تضر بالمعرض أو الزبون</td>
+            </tr>
+        </table>
+
+        [span_10](start_span)<h3>٣. حوكمة منح النقاط - صلاحيات صارمة[span_10](end_span)</h3>
+        <div class="section-box">
+            [span_11](start_span)<p><strong>مدير القسم المباشر:</strong> الجهة المخولة برصد النقاط وتقييم موظفيه يومياً، يمنع منعاً باتاً إعطاء أي نقطة دون سبب تشغيلي موثق.[span_11](end_span)</p>
+            [span_12](start_span)<p><strong>التدوين اليومي إلزامي:</strong> كل نقطة تسجل في نفس اليوم عبر المجموعة المعتمدة يمنع التدوين الرجعي أو التجميع في نهاية الشهر.[span_12](end_span)</p>
+            [span_13](start_span)<p><strong>حياد تام - لا مجاملات:</strong> يرفض قطعا أي تأثير للعواطف أو العلاقات الشخصية، النقطة من أسباب تشغيلية ميدانية فقط.[span_13](end_span)</p>
+        </div>
+        <div class="section-box">
+            [span_14](start_span)<p><strong>الإدارة العليا:</strong> أبو إيمان، عكيد عادل، ويعقوب - صلاحية كاملة لمنح أو خصم نقاط لأي موظف بناءً على جولات ميدانية ومتابعة مباشرة.[span_14](end_span)</p>
+            [span_15](start_span)<p><strong>حظر الازدواجية:</strong> مهمة واحدة - نقطة واحدة، تمنع نهائيا احتساب نقاط متعددة على نفس العمل مهما تجزأت مراحله.[span_15](end_span)</p>
+            [span_16](start_span)<p><strong>مراجعة شهرية رسمية:</strong> جلسة مراجعة في نهاية كل شهر لمطابقة الأرصدة المسجلة والتحقق من الكفاءة التشغيلية لكل قسم.[span_16](end_span)</p>
+        </div>
+
+        <h3>٤. [span_17](start_span)السقف المالي الشهري للأقسام[span_17](end_span)</h3>
+        <table>
+            <tr>
+                <th>القسم</th>
+                <th>الحد الأقصى الشهري</th>
+                <th>ملاحظة</th>
+            </tr>
+            <tr>
+                <td>قسم البائعين واستقبال الزبائن</td>
+                <td>١٥,٠٠٠ د.ع</td>
+                <td>أعلى سقف - ضغط يومي مرتفع</td>
+            </tr>
+            <tr>
+                <td>قسم التسويق والإعلام</td>
+                <td>١٠٠٠٠ د.ع</td>
+                <td>بحد أقصى ١٠ نقاط خضراء شهريا</td>
+            </tr>
+            <tr>
+                <td>قسم السائقين واللوجستي</td>
+                <td>١٠٠٠٠ د.ع</td>
+                <td>مرتبط بعدد السفرات المنجزة</td>
+            </tr>
+            <tr>
+                <td>قسم ورش النجارة الفنية</td>
+                <td>١٠٠٠٠ د.ع</td>
+                <td>جودة التركيب والتسليم في الوقت</td>
+            </tr>
+            <tr>
+                <td>قسم إدارة المخازن</td>
+                <td>٨٠٠٠ د.ع</td>
+                <td>دقة الجرد وصفر أخطاء التسجيل</td>
+            </tr>
+            <tr>
+                <td>عمال التحميل والتنزيل</td>
+                <td>٨٠٠٠ د.ع</td>
+                <td>السرعة وسلامة البضاعة</td>
+            </tr>
+            <tr>
+                <td>قسم الكاشير والتحصيل</td>
+                <td>٨٠٠٠ د.ع</td>
+                <td>صفر أخطاء مالية شرط أساسي</td>
+            </tr>
+            <tr>
+                <td>قسم الخدمات والتنظيفات</td>
+                <td>٦٠٠٠ د.ع</td>
+                <td>الانتظام اليومي والنظافة المستمرة</td>
+            </tr>
+        </table>
+
+        <h3>٥. [span_18](start_span)آلية التشغيل اليومي والأوسمة الشهرية[span_18](end_span)</h3>
+        [span_19](start_span)<p>النقاط ترسل يوميا على مجموعة الأداء في واتساب لكل موظف معني - وتحتسب شهريا من قبل مسؤول حساب النقاط المعين من الإدارة، ثم توزع الأوسمة رسمياً.[span_19](end_span)</p>
+        <div class="section-box" style="background-color: #fff3cd; border-color: #ffeeba;">
+            [span_20](start_span)<p><strong>شرط أساسي للحصول على مكافأة النقاط:[span_20](end_span)</strong></p>
+            [span_21](start_span)<p>الموظف الذي لا ينجز مهامه الأساسية بشكل سلس وطبيعي لا يستحق مكافأة النقاط الشهرية حتى لو جمع نقاطاً خضراء - الأساس أولا ثم التميز.[span_21](end_span)</p>
+        </div>
+
+        <table>
+            <tr>
+                <th>الوسام</th>
+                <th>الشرط</th>
+                <th>المكافأة</th>
+            </tr>
+            <tr>
+                <td style="color: #d4af37; font-weight: bold;">الذهبي - صدارة الأداء</td>
+                <td>الوصول للسقف العالي الأقصى بدون أي نقطة حمراء أو أخطاء مسجلة</td>
+                <td>وسام رسمي</td>
+            </tr>
+            <tr>
+                <td style="color: #c0c0c0; font-weight: bold;">الفضي - مستوى متقدم</td>
+                <td>تحقيق ٧٠٪ إلى ٨٩٪ من السقف العالي مع انضباط عام مشهود طوال الشهر</td>
+                <td>وسام رسمي</td>
+            </tr>
+            <tr>
+                <td style="color: #cd7f32; font-weight: bold;">البرونزي - أداء جيد مستقر</td>
+                <td>تحقيق ٥٠٪ إلى ٦٩٪ من السقف مع التزام مستمر وسعي واضح للتطوير</td>
+                <td>وسام رسمي</td>
+            </tr>
+        </table>
+
+        <div class="footer-note">
+            [span_22](start_span)الفترة التجريبية: ١٤ يوماً - تراجع النظام بعدها من قبل الإدارة وتقرر التثبيت أو التعديل بناء على النتائج الفعلية.[span_22](end_span)
+        </div>
+    </div>
+</body>
+</html>
