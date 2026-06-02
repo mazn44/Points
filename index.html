@@ -1,918 +1,403 @@
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>نظام النقاط الشهري — معرض إيفان</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<title>خطة الغداء - معرض إيفان 2026</title>
+<!-- استدعاء خطوط كايرو للنصوص، وخط إنجليزي أنيق لشعار إيفان -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&family=Playball&family=Montserrat:wght@800&display=swap" rel="stylesheet">
 <style>
-
-/* ===== RESET ===== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-/* ===== ROOT COLORS — Ivan Brand ===== */
-:root {
-  --black:    #0d0d0d;
-  --red:      #c0292b;
-  --red-dark: #9b1f21;
-  --white:    #ffffff;
-  --off:      #f7f5f2;
-  --gray-lt:  #eeebe7;
-  --gray:     #b0a89e;
-  --gray-dk:  #5a5450;
-  --green:    #1e7e4a;
-  --green-bg: #edf7f1;
-  --green-bd: #a8d9bc;
-  --yellow:   #b07800;
-  --yellow-bg:#fdf8ec;
-  --yellow-bd:#e6c96a;
-  --red-pt:   #c0292b;
-  --red-bg:   #fdf0f0;
-  --red-bd:   #e8a3a3;
-}
-
-/* ===== BODY ===== */
-body {
-  background: #e8e4df;
-  font-family: 'Cairo', sans-serif;
-  color: var(--black);
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
-}
-
-/* ===== PAGE WRAPPER ===== */
-.page {
-  width: 210mm;
-  min-height: 297mm;
-  margin: 20px auto;
-  background: var(--white);
-  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
-  padding: 0;
-  overflow: hidden;
-  position: relative;
-}
-
-/* ===== HEADER ===== */
-.header {
-  background: var(--black);
-  padding: 22px 30px 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  border-bottom: 3px solid var(--red);
-}
-
-.header-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo-mark {
-  width: 42px;
-  height: 42px;
-  background: var(--red);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.logo-mark svg {
-  width: 24px;
-  height: 24px;
-  fill: white;
-}
-
-.logo-text {
-  font-size: 22px;
-  font-weight: 900;
-  color: var(--white);
-  letter-spacing: 2px;
-  font-family: 'Cairo', sans-serif;
-}
-
-.logo-text span {
-  color: var(--red);
-}
-
-.header-meta {
-  text-align: left;
-  direction: ltr;
-}
-
-.header-meta .doc-type {
-  font-size: 10px;
-  color: var(--gray);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-bottom: 2px;
-}
-
-.header-meta .doc-date {
-  font-size: 13px;
-  color: var(--white);
-  font-weight: 600;
-}
-
-/* ===== TITLE BAND ===== */
-.title-band {
-  background: var(--off);
-  border-bottom: 1px solid var(--gray-lt);
-  padding: 18px 30px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-}
-
-.title-band h1 {
-  font-size: 20px;
-  font-weight: 900;
-  color: var(--black);
-  line-height: 1.3;
-}
-
-.title-band h1 span {
-  color: var(--red);
-}
-
-.title-band .subtitle {
-  font-size: 11px;
-  color: var(--gray-dk);
-  margin-top: 4px;
-  font-weight: 500;
-}
-
-.badge-row {
-  display: flex;
-  gap: 6px;
-  flex-shrink: 0;
-}
-
-.badge {
-  font-size: 10px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 20px;
-  letter-spacing: 0.5px;
-}
-
-.badge-black {
-  background: var(--black);
-  color: var(--white);
-}
-
-.badge-red {
-  background: var(--red);
-  color: var(--white);
-}
-
-/* ===== CONTENT ===== */
-.content {
-  padding: 24px 30px 30px;
-}
-
-/* ===== SECTION HEADER ===== */
-.sec-head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 14px;
-  margin-top: 26px;
-  padding-bottom: 8px;
-  border-bottom: 1.5px solid var(--gray-lt);
-}
-
-.sec-head:first-child { margin-top: 0; }
-
-.sec-num {
-  width: 26px;
-  height: 26px;
-  background: var(--red);
-  color: white;
-  border-radius: 50%;
-  font-size: 12px;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.sec-title {
-  font-size: 14px;
-  font-weight: 800;
-  color: var(--black);
-}
-
-/* ===== INTRO TEXT ===== */
-.intro-text {
-  font-size: 12px;
-  color: var(--gray-dk);
-  line-height: 2;
-  margin-bottom: 18px;
-  background: var(--off);
-  padding: 12px 16px;
-  border-radius: 6px;
-  border-right: 3px solid var(--red);
-}
-
-/* ===== POINTS CARDS ===== */
-.points-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-.pt-card {
-  border-radius: 8px;
-  padding: 14px 14px 16px;
-  border: 1.5px solid;
-  position: relative;
-  overflow: hidden;
-}
-
-.pt-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 4px;
-  height: 100%;
-}
-
-/* Green */
-.pt-green {
-  background: var(--green-bg);
-  border-color: var(--green-bd);
-}
-.pt-green::before { background: var(--green); }
-
-/* Yellow */
-.pt-yellow {
-  background: var(--yellow-bg);
-  border-color: var(--yellow-bd);
-}
-.pt-yellow::before { background: var(--yellow); }
-
-/* Red */
-.pt-red {
-  background: var(--red-bg);
-  border-color: var(--red-bd);
-}
-.pt-red::before { background: var(--red-pt); }
-
-.pt-top {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.pt-dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  box-shadow: 0 0 0 3px rgba(255,255,255,0.6), 0 0 0 4px currentColor;
-}
-
-.dot-green { background: var(--green); color: var(--green); }
-.dot-yellow { background: #d4a017; color: #d4a017; }
-.dot-red { background: var(--red-pt); color: var(--red-pt); }
-
-.pt-label {
-  font-size: 13px;
-  font-weight: 800;
-  color: var(--black);
-}
-
-.pt-value {
-  font-size: 20px;
-  font-weight: 900;
-  margin-bottom: 6px;
-  padding-right: 22px;
-}
-
-.pt-value.green-val { color: var(--green); }
-.pt-value.yellow-val { color: var(--yellow); }
-.pt-value.red-val { color: var(--red-pt); }
-
-.pt-desc {
-  font-size: 11px;
-  color: var(--gray-dk);
-  line-height: 1.8;
-  padding-right: 22px;
-}
-
-/* ===== EXAMPLES TABLE ===== */
-.ex-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 14px;
-  font-size: 11.5px;
-}
-
-.ex-table thead tr {
-  background: var(--black);
-  color: var(--white);
-}
-
-.ex-table thead th {
-  padding: 9px 12px;
-  font-weight: 700;
-  text-align: right;
-  font-size: 11px;
-  letter-spacing: 0.3px;
-}
-
-.ex-table thead th:last-child {
-  text-align: center;
-  width: 90px;
-}
-
-.ex-table tbody tr {
-  border-bottom: 1px solid var(--gray-lt);
-}
-
-.ex-table tbody tr:nth-child(even) {
-  background: var(--off);
-}
-
-.ex-table tbody td {
-  padding: 8px 12px;
-  color: var(--gray-dk);
-  line-height: 1.7;
-  vertical-align: middle;
-}
-
-.ex-table tbody td:first-child {
-  color: var(--black);
-  font-weight: 600;
-  width: 160px;
-}
-
-.ex-table tbody td:last-child {
-  text-align: center;
-}
-
-.dot-badge {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  vertical-align: middle;
-}
-
-.db-green  { background: var(--green); }
-.db-yellow { background: #d4a017; }
-.db-red    { background: var(--red-pt); }
-
-/* ===== RULES BOX ===== */
-.rules-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 4px;
-}
-
-.rule-item {
-  background: var(--off);
-  border: 1px solid var(--gray-lt);
-  border-radius: 6px;
-  padding: 11px 13px;
-  font-size: 11px;
-  color: var(--gray-dk);
-  line-height: 1.8;
-  position: relative;
-  padding-right: 26px;
-}
-
-.rule-item::before {
-  content: attr(data-num);
-  position: absolute;
-  right: 9px;
-  top: 11px;
-  width: 14px;
-  height: 14px;
-  background: var(--red);
-  color: white;
-  border-radius: 50%;
-  font-size: 9px;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 14px;
-  text-align: center;
-}
-
-.rule-item strong {
-  display: block;
-  color: var(--black);
-  font-size: 12px;
-  font-weight: 700;
-  margin-bottom: 3px;
-}
-
-/* ===== CAPS TABLE ===== */
-.caps-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 11.5px;
-  margin-top: 4px;
-}
-
-.caps-table thead tr {
-  background: var(--black);
-  color: white;
-}
-
-.caps-table thead th {
-  padding: 8px 12px;
-  font-weight: 700;
-  text-align: right;
-  font-size: 11px;
-}
-
-.caps-table tbody tr {
-  border-bottom: 1px solid var(--gray-lt);
-}
-
-.caps-table tbody tr:nth-child(even) { background: var(--off); }
-
-.caps-table tbody td {
-  padding: 8px 12px;
-  color: var(--gray-dk);
-  vertical-align: middle;
-  line-height: 1.6;
-}
-
-.caps-table tbody td:first-child {
-  font-weight: 700;
-  color: var(--black);
-}
-
-.caps-table tbody td:nth-child(2) {
-  color: var(--green);
-  font-weight: 700;
-  text-align: center;
-}
-
-/* ===== FOOTER ===== */
-.footer {
-  background: var(--black);
-  padding: 14px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-.footer-left {
-  font-size: 10px;
-  color: var(--gray);
-  line-height: 1.8;
-}
-
-.footer-right {
-  text-align: left;
-  direction: ltr;
-}
-
-.footer-right .ft-name {
-  font-size: 11px;
-  color: var(--white);
-  font-weight: 700;
-}
-
-.footer-right .ft-web {
-  font-size: 10px;
-  color: var(--gray);
-}
-
-/* ===== SIGNATURE ROW ===== */
-.sig-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 14px;
-  margin-top: 20px;
-  border-top: 1.5px solid var(--gray-lt);
-  padding-top: 16px;
-}
-
-.sig-item {
-  text-align: center;
-}
-
-.sig-item .sig-title {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--black);
-  margin-bottom: 4px;
-}
-
-.sig-item .sig-name {
-  font-size: 12px;
-  color: var(--red);
-  font-weight: 800;
-  margin-bottom: 16px;
-}
-
-.sig-line {
-  border-top: 1px dashed var(--gray);
-  margin: 0 10px;
-}
-
-/* ===== PRINT ===== */
-@media print {
-  body { background: white; }
-  .page {
-    margin: 0;
-    box-shadow: none;
+  :root {
+    --ivan-red: #C0272D;
+    --ivan-black: #111111;
+    --ivan-dark: #222222;
+    --ivan-light: #f9f9f9;
+    --ivan-border: #e0e0e0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Cairo', sans-serif;
+    background-color: #555;
+    color: var(--ivan-black);
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* إعدادات صفحة A4 وتعبئة المساحة */
+  .a4-page {
     width: 210mm;
     min-height: 297mm;
+    background: #ffffff;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
-  .no-print { display: none !important; }
-}
 
-/* ===== PRINT BUTTON ===== */
-.print-btn {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background: var(--red);
-  color: white;
-  border: none;
-  padding: 11px 22px;
-  border-radius: 30px;
-  font-family: 'Cairo', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 4px 16px rgba(192,41,43,0.4);
-  z-index: 99;
-  transition: transform 0.2s;
-}
-.print-btn:hover { transform: scale(1.05); }
+  /* خلفية مائية تشبه الهوية (زخارف خفيفة) */
+  .a4-page::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(circle at 100% 0%, rgba(192, 39, 45, 0.03) 15%, transparent 40%),
+                      radial-gradient(circle at 0% 100%, rgba(17, 17, 17, 0.03) 15%, transparent 40%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .content-wrapper {
+    padding: 20mm;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+  }
+
+  /* زر الطباعة / PDF */
+  .print-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--ivan-red);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 800;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(192, 39, 45, 0.4);
+    transition: transform 0.2s, background 0.2s;
+    z-index: 1000;
+  }
+  .print-btn:hover { background-color: #a01f24; transform: scale(1.05); }
+
+  @media print {
+    body { background: none; padding: 0; }
+    .a4-page { box-shadow: none; width: 100%; min-height: 100vh; }
+    .content-wrapper { padding: 15mm; }
+    .print-btn { display: none !important; }
+    @page { size: A4 portrait; margin: 0; }
+  }
+
+  /* الترويسة مطابقة للورق الرسمي */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--ivan-red);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+  }
+
+  .logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  /* الشعار بالـ SVG */
+  .logo-icon {
+    width: 60px; height: 60px;
+  }
+  
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  
+  .logo-ivan {
+    font-family: 'Playball', cursive;
+    font-size: 45px;
+    color: var(--ivan-black);
+    margin-bottom: -5px;
+  }
+  
+  .logo-showroom {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--ivan-black);
+  }
+
+  .header-titles {
+    text-align: left;
+  }
+  .header-titles h1 { font-size: 26px; font-weight: 900; color: var(--ivan-black); }
+  .header-titles h2 { font-size: 16px; font-weight: 700; color: var(--ivan-red); }
+
+  /* رسالة الإدارة */
+  .executive-summary {
+    background: var(--ivan-black);
+    color: white;
+    padding: 15px 20px;
+    font-size: 16px;
+    line-height: 1.6;
+    border-radius: 10px;
+    border-right: 6px solid var(--ivan-red);
+    margin-bottom: 25px;
+  }
+  .executive-summary strong { color: var(--ivan-red); }
+
+  /* العناوين الكبيرة */
+  .section-title {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--ivan-red);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* شبكة الوجبات (تعبئة الصفحة) */
+  .menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex-grow: 1; /* لتعبئة المساحة المتبقية */
+    margin-bottom: 25px;
+  }
+
+  .meal-card {
+    background: var(--ivan-light);
+    border: 2px solid var(--ivan-border);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .meal-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; width: 6px; height: 100%;
+    background: var(--ivan-black);
+  }
+
+  .meal-day {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--ivan-red);
+    margin-bottom: 5px;
+  }
+
+  .meal-title {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--ivan-black);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .meal-desc {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+    font-weight: 600;
+  }
+
+  /* تعليمات الشيف والملاحظات */
+  .rules-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .rule-box {
+    border: 2px dashed var(--ivan-red);
+    padding: 15px 20px;
+    border-radius: 10px;
+    background: #fff;
+  }
+
+  .rule-box h3 {
+    font-size: 20px;
+    color: var(--ivan-black);
+    margin-bottom: 12px;
+  }
+
+  .rule-box ul {
+    list-style: none;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+
+  .rule-box ul li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-right: 20px;
+  }
+  .rule-box ul li::before {
+    content: '■';
+    color: var(--ivan-red);
+    position: absolute;
+    right: 0;
+    font-size: 14px;
+  }
+
+  /* الفوتر (مطابق للورق الرسمي) */
+  .footer-official {
+    margin-top: auto;
+    border-top: 2px solid var(--ivan-red);
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--ivan-black);
+  }
+
+  .footer-contact {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .footer-contact span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* QR Code Placeholder */
+  .qr-code {
+    width: 50px; height: 50px;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none" stroke="%23111" stroke-width="5"/><rect x="10" y="10" width="30" height="30" fill="%23111"/><rect x="60" y="10" width="30" height="30" fill="%23111"/><rect x="10" y="60" width="30" height="30" fill="%23111"/><path d="M50 50h40v40H50z" fill="%23111"/></svg>') no-repeat center;
+    background-size: contain;
+  }
 
 </style>
 </head>
 <body>
 
-<button class="print-btn no-print" onclick="window.print()">🖨️ احفظ كـ PDF</button>
+<!-- زر الطباعة يحول الصفحة إلى PDF -->
+<button class="print-btn no-print" onclick="window.print()">🖨️ حفظ كـ PDF / طباعة</button>
 
-<div class="page">
+<div class="a4-page">
+  <div class="content-wrapper">
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="header-logo">
-      <div class="logo-mark">
-        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+    <!-- الترويسة -->
+    <div class="header">
+      <div class="logo-section">
+        <!-- رسمة الشعار -->
+        <svg class="logo-icon" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="48" fill="#111111"/>
+          <text x="50" y="65" text-anchor="middle" font-size="58" font-family="'Times New Roman', serif" fill="white" font-style="italic">i</text>
+          <circle cx="50" cy="18" r="10" fill="#C0272D"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-ivan">ivan</span>
+          <span class="logo-showroom">SHOWROOM</span>
+        </div>
       </div>
-      <div>
-        <div class="logo-text">i<span>van</span></div>
-        <div style="font-size:9px;color:var(--gray);letter-spacing:2px;margin-top:1px;">SHOWROOM</div>
+      <div class="header-titles">
+        <h1>برنامج الغداء الموحد لعام 2026</h1>
+        <h2>نظام الإطعام الفعّال لـ 50 عاملاً</h2>
       </div>
     </div>
-    <div class="header-meta">
-      <div class="doc-type">INTERNAL DOCUMENT</div>
-      <div class="doc-date">مايو ٢٠٢٦ — دهوك، زركا</div>
+
+    <!-- رسالة الإدارة -->
+    <div class="executive-summary">
+      <strong>الهدف من هذه الخطة:</strong> توفير وجبة طازجة وساخنة للعمال بتكلفة تعادل "اللفات/السندويشات"، مع القضاء على هدر الطعام تماماً. 
+      السر هو في <strong>"التسبيك"</strong>: وجبة واحدة بمرق ثقيل، تؤكل كنواشف <strong>بالخبز</strong> أو كإدام <strong>بالرز</strong> لإرضاء جميع الأذواق (عراقيين وسوريين) دون الحاجة لطبخ وجبتين.
     </div>
+
+    <div class="section-title">
+      🍽️ جدول الوجبات الأسبوعي (يُطبخ على غاز واحد)
+    </div>
+
+    <!-- الوجبات مكبرة وتعبئ الصفحة -->
+    <div class="menu-grid">
+      
+      <div class="meal-card">
+        <div class="meal-day">السبت</div>
+        <div class="meal-title">طاوة عراقية (باللحم المفروم)</div>
+        <div class="meal-desc">بطاطا، باذنجان، فلفل وبصل مع <strong>صلصة طماطم ثقيلة جداً</strong> ولحم مفروم. (وجبة ممتازة للتغميس بالخبز أو وضعها فوق الرز).</div>
+      </div>
+
+      <div class="meal-card">
+        <div class="meal-day">الأحد</div>
+        <div class="meal-title">معكرونة حمراء باللحم أو الدجاج</div>
+        <div class="meal-desc">وجبة اقتصادية ومشبعة، معكرونة مسلوقة ومخلوطة بصلصة حمراء غنية وبصل. <strong>(تقدم مع الخبز لمن يرغب، بدون رز).</strong></div>
+      </div>
+
+      <div class="meal-card">
+        <div class="meal-day">الإثنين</div>
+        <div class="meal-title">مفرّكة / مقالي مشوحة المشكلة</div>
+        <div class="meal-desc">بطاطا مكعبات تُشوح مع بصل وباذنجان وتزين بالبقدونس. تقدم كـ <strong>"نواشف" ممتازة مع الخبز</strong>، مع توفر الرز الأبيض بجانبها لمن يفضل.</div>
+      </div>
+
+      <div class="meal-card">
+        <div class="meal-day">الثلاثاء</div>
+        <div class="meal-title">بطاطا مطبوخة (طريقة احترافية)</div>
+        <div class="meal-desc">تُحمس البطاطا جيداً مع البصل، الثوم، واللحم المفروم قبل سلقها. <strong>كمية الماء يجب أن تكون قليلة وكثيفة.</strong></div>
+      </div>
+
+      <div class="meal-card">
+        <div class="meal-day">الأربعاء</div>
+        <div class="meal-title">رز مع بازلاء (مع شنينة)</div>
+        <div class="meal-desc">رز يُطبخ مع البازلاء والجزر. يقدم مع <strong>لبن رائب (شنينة) وسلطة خيار</strong>. وجبة خفيفة ومريحة للجميع.</div>
+      </div>
+
+      <div class="meal-card" style="border-color: var(--ivan-red);">
+        <div class="meal-day">الخميس (مميز)</div>
+        <div class="meal-title">رز وفاصوليا (باللحم القطع)</div>
+        <div class="meal-desc">وجبة ختام الأسبوع، باللحم القطع. الشرط الوحيد لنجاحها: <strong>يجب أن تكون الفاصوليا خاثرة وثقيلة وليست مرقة خفيفة.</strong></div>
+      </div>
+
+    </div>
+
+    <!-- التعليمات -->
+    <div class="rules-section">
+      <div class="rule-box">
+        <h3>👨‍🍳 تعليمات الشيف (لنجاح الطعم)</h3>
+        <ul>
+          <li><strong>ممنوع زيادة الماء:</strong> سر الأكل في كثافة الصلصة لتصبح صالحة للخبز.</li>
+          <li><strong>حمس المكونات أولاً:</strong> قلي البصل ومعجون الطماطم يعطي النكهة الأصلية.</li>
+          <li><strong>سر اللحم المفروم:</strong> يوزع النكهة لكل العمال بتكلفة ممتازة.</li>
+        </ul>
+      </div>
+      <div class="rule-box">
+        <h3>♻️ نظام منع الهدر للإدارة</h3>
+        <ul>
+          <li><strong>بوفيه مفتوح:</strong> العامل يسكب لنفسه ليأكل ما وضع بيده فقط.</li>
+          <li><strong>فصل المكونات:</strong> الخبز، الرز، والمرق يوضع كل منها بطنجرة مستقلة.</li>
+          <li><strong>مشهيات مساعدة:</strong> فجل، بصل أخضر، وليمون تفتح الشهية يومياً.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- الفوتر الرسمي -->
+    <div class="footer-official">
+      <div class="qr-code"></div>
+      <div class="footer-contact">
+        <span style="color: var(--ivan-red);">📞 +964 751 484 4125 &nbsp; +964 751 540 6265</span>
+        <span>🌐 www.ivanshow.com</span>
+        <span>📍 دهوك - زركا</span>
+      </div>
+    </div>
+
   </div>
-
-  <!-- TITLE BAND -->
-  <div class="title-band">
-    <div>
-      <h1>نظام <span>النقاط</span> الشهري المطور<br>للعمل والإنتاجية</h1>
-      <div class="subtitle">أداة مؤسسية لضمان العدالة والشفافية — مكافأة التميز الفعلي بعيداً عن المجاملات</div>
-    </div>
-    <div class="badge-row">
-      <span class="badge badge-black">تأسس ٢٠١٧</span>
-      <span class="badge badge-red">50 موظف</span>
-    </div>
-  </div>
-
-  <!-- CONTENT -->
-  <div class="content">
-
-    <!-- SECTION 1 — HOW POINTS WORK -->
-    <div class="sec-head">
-      <div class="sec-num">١</div>
-      <div class="sec-title">آلية عمل النقاط اليومية</div>
-    </div>
-
-    <div class="intro-text">
-      يتم متابعة أداء الموظفين ورصد نقاطهم بشكل يومي ومباشر. كل نقطة تُمنح أو تُخصم بناءً على سبب تشغيلي واضح وموثق — لا مجاملات ولا قرارات شفهية.
-    </div>
-
-    <div class="points-grid">
-
-      <!-- GREEN -->
-      <div class="pt-card pt-green">
-        <div class="pt-top">
-          <div class="pt-dot dot-green"></div>
-          <div class="pt-label">النقطة الخضراء</div>
-        </div>
-        <div class="pt-value green-val">+1000 د.ع</div>
-        <div class="pt-desc">
-          تُمنح عند إنجاز واضح خارج نطاق العمل الأساسي — مبادرة فعلية تضيف قيمة للمعرض. لا تُمنح على الأداء الاعتيادي أبداً. (تجريبي ١٤ يوم) تمسح عنخ نقطة حمراء ان وجدت واذا لا يوجد ياخذ مكافئة الف دينار على كل نقطة
-        </div>
-      </div>
-
-      <!-- YELLOW -->
-      <div class="pt-card pt-yellow">
-        <div class="pt-top">
-          <div class="pt-dot dot-yellow"></div>
-          <div class="pt-label">النقطة الصفراء</div>
-        </div>
-        <div class="pt-value yellow-val">تنبيه رسمي</div>
-        <div class="pt-desc">
-          تنبيه مكتوب موثق عند غياب أو خطأ بسيط. لا خصم مالي مباشر — لكن تكرارها مرتين في نفس الشهر يحولها تلقائياً إلى نقطة حمراء.
-        </div>
-      </div>
-
-      <!-- RED -->
-      <div class="pt-card pt-red">
-        <div class="pt-top">
-          <div class="pt-dot dot-red"></div>
-          <div class="pt-label">النقطة الحمراء</div>
-        </div>
-        <div class="pt-value red-val">−1000 د.ع</div>
-        <div class="pt-desc">
-          خصم نقطة خضراء إذا وجد واذا لا يوجد خصم على راتبه  عند خطأ كبير كنسيان غرض أو شكوى عليه بإهمال أو تكرار خطأ سبق التنبيه عليه. لا استثناء.
-        </div>
-      </div>
-
-    </div>
-
-    <!-- SECTION 2 — EXAMPLES -->
-    <div class="sec-head">
-      <div class="sec-num">٢</div>
-      <div class="sec-title">أمثلة واضحة على منح النقاط وخصمها</div>
-    </div>
-
-    <table class="ex-table">
-      <thead>
-        <tr>
-          <th>الموقف / السلوك</th>
-          <th>التفاصيل</th>
-          <th style="text-align:center;">النقطة</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>مبادرة خارج نطاق العمل</td>
-          <td>تنفيذ مهمة أو حل مشكلة خارج نطاق واجباته الأساسية بشكل مستقل وناجح</td>
-          <td><span class="dot-badge db-green"></span></td>
-        </tr>
-        <tr>
-          <td>إنقاذ موقف طارئ</td>
-          <td>تدخل فوري لسد نقص أو حل أزمة دون انتظار أمر، وتجاوز الموقف بنجاح</td>
-          <td><span class="dot-badge db-green"></span></td>
-        </tr>
-        <tr>
-          <td>دعم قسم آخر فعلياً</td>
-          <td>مساعدة زميل أو قسم مختلف في وقت ضغط بشكل مؤثر يعود بفائدة واضحة على المعرض</td>
-          <td><span class="dot-badge db-green"></span></td>
-        </tr>
-        <tr>
-          <td>إنجاز استثنائي موثق</td>
-          <td>إتمام عمل بجودة عالية واضحة في ظروف ضغط أو ذروة، يفوق المتوقع بشكل ملحوظ</td>
-          <td><span class="dot-badge db-green"></span></td>
-        </tr>
-        <tr>
-          <td>غياب بدون إشعار</td>
-          <td>التغيب عن الدوام دون إبلاغ مسبق أو سبب موثق مقبول من الإدارة</td>
-          <td><span class="dot-badge db-yellow"></span></td>
-        </tr>
-        <tr>
-          <td>تأخر عن موعد الشفت</td>
-          <td>الوصول متأخراً عن وقت البداية المحدد دون عذر رسمي مسبق</td>
-          <td><span class="dot-badge db-yellow"></span></td>
-        </tr>
-        <tr>
-          <td>تجاهل تعليمات مباشرة</td>
-          <td>عدم تنفيذ توجيهات واضحة صادرة من مسؤول الشفت أو الإدارة في وقتها</td>
-          <td><span class="dot-badge db-yellow"></span></td>
-        </tr>
-        <tr>
-          <td>إهمال في التسليم أو التسجيل</td>
-          <td>نسيان توثيق طلب، أو عدم إبلاغ البديل عند الانصراف، أو ترك مهمة مفتوحة بدون تسليم</td>
-          <td><span class="dot-badge db-yellow"></span></td>
-        </tr>
-        <tr>
-          <td>نسيان غرض أو قطعة</td>
-          <td>إتمام مهمة وإرجاع السيارة أو المغادرة دون التحقق من اكتمال الطلب أو استلام الزبون</td>
-          <td><span class="dot-badge db-red"></span></td>
-        </tr>
-        <tr>
-          <td>اهمال  قطعة بإهمال</td>
-          <td>اهمال ونسيان قطعة الحمل أو النقل أو التركيب</td>
-          <td><span class="dot-badge db-red"></span></td>
-        </tr>
-        <tr>
-          <td>خطأ متكرر بعد تنبيه</td>
-          <td>تكرار نفس الخطأ أو السلوك بعد تلقي نقطة صفراء رسمية مسجلة في نفس الشهر</td>
-          <td><span class="dot-badge db-red"></span></td>
-        </tr>
-        <tr>
-          <td>صدور شكوى عليه   </td>
-          <td>   شكوى إدارية عليه  </td>
-          <td><span class="dot-badge db-red"></span></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- SECTION 3 — GOVERNANCE -->
-    <div class="sec-head">
-      <div class="sec-num">٣</div>
-      <div class="sec-title">حوكمة منح النقاط — صلاحيات صارمة</div>
-    </div>
-
-    <div class="rules-grid">
-      <div class="rule-item" data-num="١">
-        <strong>مدير القسم المباشر</strong>
-        الجهة المخولة برصد النقاط وتقييم موظفيه يومياً. يُمنع منعاً باتاً إعطاء أي نقطة دون سبب تشغيلي موثق.
-      </div>
-      <div class="rule-item" data-num="٢">
-        <strong>الإدارة العليا</strong>
-        أبو إيفان، عكيد، عادل، ويعقوب — صلاحية كاملة لمنح أو خصم نقاط لأي موظف بناءً على جولات ميدانية ومتابعة مباشرة.
-      </div>
-      <div class="rule-item" data-num="٣">
-        <strong>التدوين اليومي إلزامي</strong>
-        كل نقطة تُسجل في نفس اليوم عبر المجموعة المعتمدة. يُمنع التدوين الرجعي أو التجميع في نهاية الشهر.
-      </div>
-      <div class="rule-item" data-num="٤">
-        <strong>حظر الازدواجية</strong>
-        مهمة واحدة = نقطة واحدة. يُمنع نهائياً احتساب نقاط متعددة على نفس العمل مهما تجزأت مراحله.
-      </div>
-      <div class="rule-item" data-num="٥">
-        <strong>حياد تام — لا مجاملات</strong>
-        يُرفض قطعاً أي تأثير للعواطف أو العلاقات الشخصية. النقطة من أسباب تشغيلية ميدانية فقط.
-      </div>
-      <div class="rule-item" data-num="٦">
-        <strong>مراجعة شهرية رسمية</strong>
-        جلسة مراجعة في نهاية كل شهر لمطابقة الأرصدة المسجلة والتحقق من الكفاءة التشغيلية لكل قسم.
-      </div>
-    </div>
-
-    <!-- SECTION 4 — CAPS -->
-    <div class="sec-head">
-      <div class="sec-num">٤</div>
-      <div class="sec-title">السقف المالي الشهري للأقسام</div>
-    </div>
-
-    <table class="caps-table">
-      <thead>
-        <tr>
-          <th>القسم</th>
-          <th style="text-align:center;">الحد الأقصى الشهري</th>
-          <th>ملاحظة</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>قسم البائعين واستقبال الزبائن</td>
-          <td>١٥٬٠٠٠ د.ع</td>
-          <td>أعلى سقف — ضغط يومي مرتفع</td>
-        </tr>
-        <tr>
-          <td>قسم التسويق والإعلام</td>
-          <td>١٠٬٠٠٠ د.ع</td>
-          <td>بحد أقصى ١٠ نقاط خضراء شهرياً</td>
-        </tr>
-        <tr>
-          <td>قسم السائقين واللوجستي</td>
-          <td>١٠٬٠٠٠ د.ع</td>
-          <td>مرتبط بعدد السفرات المنجزة</td>
-        </tr>
-        <tr>
-          <td>قسم ورش النجارة الفنية</td>
-          <td>١٠٬٠٠٠ د.ع</td>
-          <td>جودة التركيب والتسليم في الوقت</td>
-        </tr>
-        <tr>
-          <td>قسم إدارة المخازن</td>
-          <td>٨٬٠٠٠ د.ع</td>
-          <td>دقة الجرد وصفر أخطاء التسجيل</td>
-        </tr>
-        <tr>
-          <td>عمال التحميل والتنزيل</td>
-          <td>٨٬٠٠٠ د.ع</td>
-          <td>السرعة وسلامة البضاعة</td>
-        </tr>
-        <tr>
-          <td>قسم الكاشير والتحصيل</td>
-          <td>٨٬٠٠٠ د.ع</td>
-          <td>صفر أخطاء مالية شرط أساسي</td>
-        </tr>
-        <tr>
-          <td>قسم الخدمات والتنظيفات</td>
-          <td>٦٬٠٠٠ د.ع</td>
-          <td>الانتظام اليومي والنظافة المستمرة</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- SECTION 5 — WHATSAPP & MEDALS -->
-    <div class="sec-head">
-      <div class="sec-num">٥</div>
-      <div class="sec-title">آلية التشغيل اليومي والأوسمة الشهرية</div>
-    </div>
-
-    <div class="intro-text">
-      النقاط تُرسل يومياً على <strong>مجموعة الأداء</strong> في واتساب لكل موظف معني — وتُحتسب شهرياً من قِبل <strong>مسؤول حساب النقاط</strong> المعيَّن من الإدارة، ثم تُوزَّع الجوائز والأوسمة رسمياً.
-    </div>
-
-    <!-- CONDITION BOX -->
-    <div style="background:#fdf0f0;border:1.5px solid #e8a3a3;border-right:4px solid #c0292b;border-radius:7px;padding:12px 16px;margin-bottom:14px;font-size:11.5px;color:#5a5450;line-height:1.9;">
-      <strong style="color:#c0292b;display:block;margin-bottom:4px;">⚠️ شرط أساسي للحصول على مكافأة النقاط</strong>
-      الموظف الذي لا ينجز مهامه الأساسية بشكل سلس وطبيعي <strong>لا يستحق مكافأة النقاط الشهرية</strong> حتى لو جمع نقاطاً خضراء — الأساس أولاً، ثم التميز.
-    </div>
-
-    <!-- MEDALS TABLE -->
-    <table class="caps-table">
-      <thead>
-        <tr>
-          <th style="width:30px;text-align:center;">🏅</th>
-          <th>الوسام</th>
-          <th>الشرط</th>
-          <th>المكافأة</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="text-align:center;font-size:16px;">🥇</td>
-          <td style="font-weight:800;color:#b8860b;">الذهبي — صدارة الأداء</td>
-          <td style="color:#5a5450;">الوصول للسقف المالي الأقصى بدون أي نقطة حمراء أو أخطاء مسجلة</td>
-          <td style="color:#1e7e4a;font-weight:700;">وسام ذهبي  رسمي</td>
-        </tr>
-        <tr>
-          <td style="text-align:center;font-size:16px;">🥈</td>
-          <td style="font-weight:800;color:#708090;">الفضي — مستوى متقدم</td>
-          <td style="color:#5a5450;">تحقيق ٧٠٪ إلى ٨٩٪ من السقف المالي مع انضباط عام مشهود طوال الشهر</td>
-          <td style="color:#1e7e4a;font-weight:700;">وسام رسمي</td>
-        </tr>
-        <tr>
-          <td style="text-align:center;font-size:16px;">🥉</td>
-          <td style="font-weight:800;color:#a0522d;">البرونزي — أداء جيد مستقر</td>
-          <td style="color:#5a5450;">تحقيق ٥٠٪ إلى ٦٩٪ من السقف مع التزام مستمر وسعي واضح للتطوير</td>
-          <td style="color:#1e7e4a;font-weight:700;">وسام رسمي</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- TRIAL NOTE -->
-    <div style="background:#f7f5f2;border:1px solid #eeebe7;border-radius:6px;padding:10px 14px;margin-top:12px;font-size:11px;color:#5a5450;line-height:1.8;text-align:center;">
-      🗓️ <strong style="color:#0d0d0d;">الفترة التجريبية: ١٤ يوماً</strong> — يُراجع النظام بعدها من قِبل الإدارة ويُقرر التثبيت أو التعديل بناءً على النتائج الفعلية
-    </div>
-
-    <!-- SAVE BUTTON INSIDE PAGE -->
-    <div class="no-print" style="text-align:center;margin:18px 0 6px;">
-      <button onclick="window.print()" style="background:#c0292b;color:white;border:none;padding:10px 28px;border-radius:30px;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 3px 12px rgba(192,41,43,0.35);">
-        🖨️ احفظ كـ PDF
-      </button>
-    </div>
-
-    <!-- SIG -->
-    <div class="sig-row">
-      <div class="sig-item">
-        <div class="sig-title">مدير التسويق والميديا</div>
-        <div class="sig-name">مازن داوود</div>
-        <div class="sig-line"></div>
-      </div>
-      <div class="sig-item">
-        <div class="sig-title">المدير العام</div>
-        <div class="sig-name">عكيد (أبو عمر)</div>
-        <div class="sig-line"></div>
-      </div>
-      <div class="sig-item">
-        <div class="sig-title">صاحب المعرض</div>
-        <div class="sig-name">أبو إيفان</div>
-        <div class="sig-line"></div>
-      </div>
-    </div>
-
-  </div><!-- /content -->
-
-  <!-- FOOTER -->
-  <div class="footer">
-    <div class="footer-left">
-      وثيقة إدارية داخلية — سرية<br>
-      معرض إيفان للأثاث — دهوك، زركا<br>
-      +964 751 484 4125 &nbsp;|&nbsp; +964 751 540 6265
-    </div>
-    <div class="footer-right">
-      <div class="ft-name">www.ivanshow.com</div>
-      <div class="ft-web">IVAN SHOWROOM © 2017</div>
-    </div>
-  </div>
-
-</div><!-- /page -->
+</div>
 
 </body>
 </html>
+
+
+```
